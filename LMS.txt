@@ -1,0 +1,601 @@
+-------------------------------------------------------------------------------------------------------------------
+                                                                 USER DETAILS
+-------------------------------------------------------------------------------------------------------------------
+create database LMS;
+show databases;
+use LMS;
+show tables;
+create table user_details(Id INT auto_increment NOT NULL,
+Email_id varchar(50) NOT NULL,
+Last_name varchar(50) NOT NULL, 
+Password varchar(50) ,
+Contact_number varchar(10),
+Verified varchar(50),
+Creator_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+Creator_User INT NOT NULL,
+PRIMARY KEY (Id));
+
+mysql> DESC USER_DETAILS;
++----------------+-------------+------+-----+-------------------+-------------------+
+| Field          | Type        | Null | Key | Default           | Extra             |
++----------------+-------------+------+-----+-------------------+-------------------+
+| Id             | int         | NO   | PRI | NULL              | auto_increment    |
+| Email_id       | varchar(50) | NO   |     | NULL              |                   |
+| Last_name      | varchar(50) | NO   |     | NULL              |                   |
+| Password       | varchar(50) | YES  |     | NULL              |                   |
+| Contact_number | varchar(10) | YES  |     | NULL              |                   |
+| Verified       | varchar(50) | YES  |     | NULL              |                   |
+| Creator_Stamp  | timestamp   | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| Creator_User   | int         | NO   |     | NULL              |                   |
++----------------+-------------+------+-----+-------------------+-------------------+
+8 rows in set (0.00 sec)
+----------------------------------------------------------------------------------------------------------------------------
+                                                                 Hired Candidate
+----------------------------------------------------------------------------------------------------------------------------
+
+ CREATE TABLE HIRED_CANDIDATE(Id INT N' at line 1
+mysql> CREATE TABLE HIRED_CANDIDATE(Id INT NOT NULL,
+    ->      FIRST_NAME VARCHAR(50),
+    ->      MIDDLE_NAME VARCHAR(50),
+    ->      EMAIL_ID VARCHAR(50),
+    ->      HIRED_CITY VARCHAR(50),
+    ->      DEGREE VARCHAR(50),
+    ->      HIRED_DATE DATE,
+    ->      MOBILE_NUMBER VARCHAR(10),
+    ->      PERMANENT_PINCODE VARCHAR(10),
+    ->      HIRED_LAB VARCHAR(50),
+    ->      ATTITUDE VARCHAR(50),
+    ->      COMMUNICATION_REMARK VARCHAR(10),
+    ->      KNOWLEDGE_REMARK VARCHAR(10),
+    ->      AGGREGATE_REMARK VARCHAR(10),
+    ->      STATUS VARCHAR(50),
+    ->      Creator_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->                               Creator_User INT NOT NULL,
+    ->                               PRIMARY KEY (Id),
+    ->                               FOREIGN KEY (Creator_User) REFERENCES User_Details(Id));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> DESC HIRED_CANDIDATE;
++----------------------+-------------+------+-----+-------------------+-------------------+
+| Field                | Type        | Null | Key | Default           | Extra             |
++----------------------+-------------+------+-----+-------------------+-------------------+
+| Id                   | int         | NO   | PRI | NULL              |                   |
+| FIRST_NAME           | varchar(50) | YES  |     | NULL              |                   |
+| MIDDLE_NAME          | varchar(50) | YES  |     | NULL              |                   |
+| EMAIL_ID             | varchar(50) | YES  |     | NULL              |                   |
+| HIRED_CITY           | varchar(50) | YES  |     | NULL              |                   |
+| DEGREE               | varchar(50) | YES  |     | NULL              |                   |
+| HIRED_DATE           | date        | YES  |     | NULL              |                   |
+| MOBILE_NUMBER        | varchar(10) | YES  |     | NULL              |                   |
+| PERMANENT_PINCODE    | varchar(10) | YES  |     | NULL              |                   |
+| HIRED_LAB            | varchar(50) | YES  |     | NULL              |                   |
+| ATTITUDE             | varchar(50) | YES  |     | NULL              |                   |
+| COMMUNICATION_REMARK | varchar(10) | YES  |     | NULL              |                   |
+| KNOWLEDGE_REMARK     | varchar(10) | YES  |     | NULL              |                   |
+| AGGREGATE_REMARK     | varchar(10) | YES  |     | NULL              |                   |
+| STATUS               | varchar(50) | YES  |     | NULL              |                   |
+| Creator_Stamp        | timestamp   | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| Creator_User         | int         | NO   | MUL | NULL              |                   |
++----------------------+-------------+------+-----+-------------------+-------------------+
+17 rows in set (0.01 sec)
+ 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                         Fellowship Candidate
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ 
+ CREATE TABLE  FELLOWSHIP_CANDIDATE(ID INT NOT NULL,
+ CIC_ID VARCHAR(20),
+ FIRST_NAME VARCHAR(50),
+ MIDDLE_NAME VARCHAR(50),
+ LAST_NAME VARCHAR(50),
+ EMAIL_ID VARCHAR(50),
+ HIRED_CITY VARCHAR(50),
+ DEGREE VARCHAR(50),
+ HIRED_DATE DATE,
+ MOBILE_NUMBER VARCHAR(10),
+ PERMANENT_PINCODE VARCHAR(10),
+ HIRED_LAB VARCHAR(50),
+ ATTITUDE VARCHAR(50),
+ COMMUNICATION_REMARK  VARCHAR(50),
+ KNOWLEDEGE_REMARK VARCHAR(50),
+ AGGREGATE_REMARK VARCHAR(50),
+CREATOR_STAMP TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+CREATOR_USER INT NOT NULL,
+BIRTH_DATE DATE,
+IS_BIRTH_DATE_VERIFIED BOOLEAN,
+PARENT_NAME VARCHAR(50),
+PARENT_OCCUPATION VARCHAR(50),
+PARENT_MOBILE_NUMBER VARCHAR(10),
+PARENT_ANNUAL_SALARY LONG,
+LOCAL_ADDRESS VARCHAR(255),
+PERMANENT_ADDRESS VARCHAR(255),
+PHOTOPATH VARCHAR(50),
+JOINING_DATE DATE,
+CANDIDATE_STATUS VARCHAR(50),
+PERSONAL_INFORMATION TEXT,
+BANK_INFORMATION TEXT,
+DOCUMENT_STATUS VARCHAR(50),
+REMARK VARCHAR (50),
+PRIMARY KEY(Id),
+ FOREIGN KEY (Creator_User) REFERENCES User_Details(Id));
+ 
+ 
+mysql> desc fellowship_candidate;
++------------------------+--------------+------+-----+-------------------+-------------------+
+| Field                  | Type         | Null | Key | Default           | Extra             |
++------------------------+--------------+------+-----+-------------------+-------------------+
+| ID                     | int          | NO   | PRI | NULL              |                   |
+| CIC_ID                 | varchar(20)  | YES  |     | NULL              |                   |
+| FIRST_NAME             | varchar(50)  | YES  |     | NULL              |                   |
+| MIDDLE_NAME            | varchar(50)  | YES  |     | NULL              |                   |
+| LAST_NAME              | varchar(50)  | YES  |     | NULL              |                   |
+| EMAIL_ID               | varchar(50)  | YES  |     | NULL              |                   |
+| HIRED_CITY             | varchar(50)  | YES  |     | NULL              |                   |
+| DEGREE                 | varchar(50)  | YES  |     | NULL              |                   |
+| HIRED_DATE             | date         | YES  |     | NULL              |                   |
+| MOBILE_NUMBER          | varchar(10)  | YES  |     | NULL              |                   |
+| PERMANENT_PINCODE      | varchar(10)  | YES  |     | NULL              |                   |
+| HIRED_LAB              | varchar(50)  | YES  |     | NULL              |                   |
+| ATTITUDE               | varchar(50)  | YES  |     | NULL              |                   |
+| COMMUNICATION_REMARK   | varchar(50)  | YES  |     | NULL              |                   |
+| KNOWLEDEGE_REMARK      | varchar(50)  | YES  |     | NULL              |                   |
+| AGGREGATE_REMARK       | varchar(50)  | YES  |     | NULL              |                   |
+| CREATOR_STAMP          | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| CREATOR_USER           | int          | NO   | MUL | NULL              |                   |
+| BIRTH_DATE             | date         | YES  |     | NULL              |                   |
+| IS_BIRTH_DATE_VERIFIED | tinyint(1)   | YES  |     | NULL              |                   |
+| PARENT_NAME            | varchar(50)  | YES  |     | NULL              |                   |
+| PARENT_OCCUPATION      | varchar(50)  | YES  |     | NULL              |                   |
+| PARENT_MOBILE_NUMBER   | varchar(10)  | YES  |     | NULL              |                   |
+| PARENT_ANNUAL_SALARY   | mediumtext   | YES  |     | NULL              |                   |
+| LOCAL_ADDRESS          | varchar(255) | YES  |     | NULL              |                   |
+| PERMANENT_ADDRESS      | varchar(255) | YES  |     | NULL              |                   |
+| PHOTOPATH              | varchar(50)  | YES  |     | NULL              |                   |
+| JOINING_DATE           | date         | YES  |     | NULL              |                   |
+| CANDIDATE_STATUS       | varchar(50)  | YES  |     | NULL              |                   |
+| PERSONAL_INFORMATION   | text         | YES  |     | NULL              |                   |
+| BANK_INFORMATION       | text         | YES  |     | NULL              |                   |
+| DOCUMENT_STATUS        | varchar(50)  | YES  |     | NULL              |                   |
+| REMARK                 | varchar(50)  | YES  |     | NULL              |                   |
++------------------------+--------------+------+-----+-------------------+-------------------+
+33 rows in set (0.03 sec)
+----------------------------------------------------------------------------------------------------------------------------
+                                                   Candidate Bank Details
+---------------------------------------------------------------------------------------------------------------------------- 
+  
+CREATE TABLE CANDIDATE_BANK_DETAILS(ID INT NOT NULL,
+ CANDIDATE_ID INT NOT NULL,
+ NAME VARCHAR(50),
+ ACCOUNT_NUMBER VARCHAR(50),
+ IS_ACCOUNT_NUMBER_VERIFIED BOOLEAN,
+ IFSC_CODE VARCHAR(50),
+ IS_IFSC_CODE_VERIFIED BOOLEAN,
+ PAN_NUMBER VARCHAR(50),
+ IS_PAN_NUMBER_VERIFIED BOOLEAN,
+ AADHAR_NUMBER VARCHAR(50),
+ IS_AADHAR_NUMBER_VERIFIED BOOLEAN,
+ Creator_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ Creator_User INT NOT NULL,
+ PRIMARY KEY (Id),							 
+FOREIGN KEY (Creator_User) REFERENCES User_Details(Id),
+FOREIGN KEY (Candidate_Id) REFERENCES Fellowship_Candidate(Id)); 
+
+mysql> desc candidate_bank_details;
++----------------------------+-------------+------+-----+-------------------+-------------------+
+| Field                      | Type        | Null | Key | Default           | Extra             |
++----------------------------+-------------+------+-----+-------------------+-------------------+
+| ID                         | int         | NO   | PRI | NULL              |                   |
+| CANDIDATE_ID               | int         | NO   | MUL | NULL              |                   |
+| NAME                       | varchar(50) | YES  |     | NULL              |                   |
+| ACCOUNT_NUMBER             | varchar(50) | YES  |     | NULL              |                   |
+| IS_ACCOUNT_NUMBER_VERIFIED | tinyint(1)  | YES  |     | NULL              |                   |
+| IFSC_CODE                  | varchar(50) | YES  |     | NULL              |                   |
+| IS_IFSC_CODE_VERIFIED      | tinyint(1)  | YES  |     | NULL              |                   |
+| PAN_NUMBER                 | varchar(50) | YES  |     | NULL              |                   |
+| IS_PAN_NUMBER_VERIFIED     | tinyint(1)  | YES  |     | NULL              |                   |
+| AADHAR_NUMBER              | varchar(50) | YES  |     | NULL              |                   |
+| IS_AADHAR_NUMBER_VERIFIED  | tinyint(1)  | YES  |     | NULL              |                   |
+| Creator_Stamp              | timestamp   | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| Creator_User               | int         | NO   | MUL | NULL              |                   |
++----------------------------+-------------+------+-----+-------------------+-------------------+
+13 rows in set (0.01 sec)
+------------------------------------------------------------------------------------------
+                                  Candidate Qualification
+------------------------------------------------------------------------------------------
+mysql> CREATE TABLE CANDIDATE_QUALIFICATION(ID INT NOT NULL,
+    ->                                   CANDIDATE_ID INT NOT NULL,
+    ->                                   DIPLOMA VARCHAR(100),
+    ->                                   DEGREE_NAME VARCHAR(100),
+    ->                                   IS_DEGREE_NAME_VERIFIED BOOLEAN,
+    ->                                   EMPLOYEE_DECIPLINE VARCHAR(100),
+    ->                                   IS_EMPLOYEE_DECIPLINE_VERIFIED BOOLEAN,
+    ->                                   PASSING_YEAR INT,
+    ->                                   IS_PASSING_YEAR_VERIFIED BOOLEAN,
+    ->                                   FINAL_YEAR_PERCENTAGE FLOAT,
+    ->                                   IS_FINAL_YEAR_PERCENTAGE_VERIFIED BOOLEAN,
+    ->                                   TRAINING_INSTITUTE VARCHAR(100),
+    ->                                   IS_TRAINING_INSTITUTE_VERIFIED BOOLEAN,
+    ->                                   TRAINING_DURATION_MONTH VARCHAR(50),
+    ->                                   IS_TRAINING_DURATION_MONTH_VERIFIED BOOLEAN,
+    ->                                   OTHER_TRAINING VARCHAR(50),
+    ->                                   IS_OTHER_TRAINING_VERIFIED BOOLEAN,
+    ->                                    Creator_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->                                       Creator_User INT NOT NULL,
+    ->                                       PRIMARY KEY (Id),
+    ->                                       FOREIGN KEY (Creator_User) REFERENCES User_Details(Id),
+    ->                                       FOREIGN KEY (Candidate_Id) REFERENCES Fellowship_Candidate(Id));
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> DESC CANDIDATE_QUALIFICATION;
++-------------------------------------+--------------+------+-----+-------------------+-------------------+
+| Field                               | Type         | Null | Key | Default           | Extra             |
++-------------------------------------+--------------+------+-----+-------------------+-------------------+
+| ID                                  | int          | NO   | PRI | NULL              |                   |
+| CANDIDATE_ID                        | int          | NO   | MUL | NULL              |                   |
+| DIPLOMA                             | varchar(100) | YES  |     | NULL              |                   |
+| DEGREE_NAME                         | varchar(100) | YES  |     | NULL              |                   |
+| IS_DEGREE_NAME_VERIFIED             | tinyint(1)   | YES  |     | NULL              |                   |
+| EMPLOYEE_DECIPLINE                  | varchar(100) | YES  |     | NULL              |                   |
+| IS_EMPLOYEE_DECIPLINE_VERIFIED      | tinyint(1)   | YES  |     | NULL              |                   |
+| PASSING_YEAR                        | int          | YES  |     | NULL              |                   |
+| IS_PASSING_YEAR_VERIFIED            | tinyint(1)   | YES  |     | NULL              |                   |
+| FINAL_YEAR_PERCENTAGE               | float        | YES  |     | NULL              |                   |
+| IS_FINAL_YEAR_PERCENTAGE_VERIFIED   | tinyint(1)   | YES  |     | NULL              |                   |
+| TRAINING_INSTITUTE                  | varchar(100) | YES  |     | NULL              |                   |
+| IS_TRAINING_INSTITUTE_VERIFIED      | tinyint(1)   | YES  |     | NULL              |                   |
+| TRAINING_DURATION_MONTH             | varchar(50)  | YES  |     | NULL              |                   |
+| IS_TRAINING_DURATION_MONTH_VERIFIED | tinyint(1)   | YES  |     | NULL              |                   |
+| OTHER_TRAINING                      | varchar(50)  | YES  |     | NULL              |                   |
+| IS_OTHER_TRAINING_VERIFIED          | tinyint(1)   | YES  |     | NULL              |                   |
+| Creator_Stamp                       | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| Creator_User                        | int          | NO   | MUL | NULL              |                   |
++-------------------------------------+--------------+------+-----+-------------------+-------------------+
+19 rows in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------
+                                     Candidate Documents
+-----------------------------------------------------------------------------------------------------------
+CREATE TABLE CANDIDATE_DOCUMENTS(ID INT NOT NULL,
+                                      CANDIDATE_ID INT NOT NULL,
+                                      DOC_TYPE VARCHAR(50),
+                                      DOC_PATH VARCHAR(50),
+                                      STATUS VARCHAR(50),
+                                       Creator_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+								  Creator_User INT NOT NULL,
+								  PRIMARY KEY (Id),
+                                  FOREIGN KEY (Creator_User) REFERENCES User_Details(Id),
+                                  FOREIGN KEY (Candidate_Id) REFERENCES Fellowship_Candidate(Id));
+mysql> DESC CANDIDATE_DOCUMENTS;
++---------------+-------------+------+-----+-------------------+-------------------+
+| Field         | Type        | Null | Key | Default           | Extra             |
++---------------+-------------+------+-----+-------------------+-------------------+
+| ID            | int         | NO   | PRI | NULL              |                   |
+| CANDIDATE_ID  | int         | NO   | MUL | NULL              |                   |
+| DOC_TYPE      | varchar(50) | YES  |     | NULL              |                   |
+| DOC_PATH      | varchar(50) | YES  |     | NULL              |                   |
+| STATUS        | varchar(50) | YES  |     | NULL              |                   |
+| Creator_Stamp | timestamp   | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| Creator_User  | int         | NO   | MUL | NULL              |                   |
++---------------+-------------+------+-----+-------------------+-------------------+
+7 rows in set (0.00 sec)
+--------------------------------------------------------------------------------------------------
+                                          COMPANY
+--------------------------------------------------------------------------------------------------
+CREATE TABLE COMPANY(ID INT NOT NULL,
+		    NAME VARCHAR(50),
+                    ADDRESS VARCHAR(255),
+                    LOCATION VARCHAR(20),
+                     STATUS VARCHAR(50),
+                     Creator_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+		     Creator_User INT NOT NULL,
+	             PRIMARY KEY (Id),
+		     FOREIGN KEY (Creator_User) REFERENCES User_Details(Id));
+
+mysql> DESC COMPANY;
++---------------+--------------+------+-----+-------------------+-------------------+
+| Field         | Type         | Null | Key | Default           | Extra             |
++---------------+--------------+------+-----+-------------------+-------------------+
+| ID            | int          | NO   | PRI | NULL              |                   |
+| NAME          | varchar(50)  | YES  |     | NULL              |                   |
+| ADDRESS       | varchar(255) | YES  |     | NULL              |                   |
+| LOCATION      | varchar(20)  | YES  |     | NULL              |                   |
+| STATUS        | varchar(50)  | YES  |     | NULL              |                   |
+| Creator_Stamp | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| Creator_User  | int          | NO   | MUL | NULL              |                   |
++---------------+--------------+------+-----+-------------------+-------------------+
+7 rows in set (0.03 sec)
+-------------------------------------------------------------------------------------------------
+                           TECH STACK, TECH TYPE ,MAKER_PROGRAM
+-------------------------------------------------------------------------------------------------
+mysql>     CREATE TABLE Tech_Stack (Id INT NOT NULL,
+    ->                                           Tech_Name VARCHAR(100),
+    ->                          Image_Path VARCHAR(100),
+    ->                          Framework VARCHAR(20),
+    ->                          Cur_Status VARCHAR(20),
+    ->                          Creator_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->                                       Creator_User INT NOT NULL,
+    ->                                           PRIMARY KEY (Id),
+    ->                          FOREIGN KEY (Creator_User) REFERENCES User_Details(Id));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> CREATE TABLE Tech_Type (Id INT NOT NULL,
+    ->                                          Type_Name VARCHAR(100),
+    ->                         Cur_Status VARCHAR(20),
+    ->                         Creator_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->                                          Creator_User INT NOT NULL,
+    ->                                          PRIMARY KEY (Id),
+    ->                         FOREIGN KEY (Creator_User) REFERENCES User_Details(Id));
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> CREATE TABLE MAKER_PROGRAM(ID INT NOT NULL,
+    ->                                  PROGRAM_NAME VARCHAR(50),
+    ->                                  PROGRAM_TYPE VARCHAR(50),
+    ->                                  TECH_STACK_ID INT NOT NULL,
+    ->                                  TECH_TYPE_ID INT NOT NULL,
+    ->                                  IS_PROGRAM_APPROVED BOOLEAN,
+    ->                                  DESCRIPTION VARCHAR(225),
+    ->                                  STATUS VARCHAR(50),
+    ->                                  Creator_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->                                              Creator_User INT NOT NULL,
+    ->                                                  PRIMARY KEY (Id),
+    ->                             FOREIGN KEY (Creator_User) REFERENCES User_Details(Id),
+    ->                             FOREIGN KEY (Tech_Stack_Id) REFERENCES Tech_Stack(Id),
+    ->                             FOREIGN KEY (Tech_Type_Id) REFERENCES Tech_Type(Id));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> DESC MAKER_PROGRAM;
++---------------------+--------------+------+-----+-------------------+-------------------+
+| Field               | Type         | Null | Key | Default           | Extra             |
++---------------------+--------------+------+-----+-------------------+-------------------+
+| ID                  | int          | NO   | PRI | NULL              |                   |
+| PROGRAM_NAME        | varchar(50)  | YES  |     | NULL              |                   |
+| PROGRAM_TYPE        | varchar(50)  | YES  |     | NULL              |                   |
+| TECH_STACK_ID       | int          | NO   | MUL | NULL              |                   |
+| TECH_TYPE_ID        | int          | NO   | MUL | NULL              |                   |
+| IS_PROGRAM_APPROVED | tinyint(1)   | YES  |     | NULL              |                   |
+| DESCRIPTION         | varchar(225) | YES  |     | NULL              |                   |
+| STATUS              | varchar(50)  | YES  |     | NULL              |                   |
+| Creator_Stamp       | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| Creator_User        | int          | NO   | MUL | NULL              |                   |
++---------------------+--------------+------+-----+-------------------+-------------------+
+10 rows in set (0.00 sec)
+----------------------------------------------------------------------------------------------
+                                     APP PARAMETERS
+----------------------------------------------------------------------------------------------
+
+                                  CREATE TABLE APP_PARAMETERS(ID INT NOT NULL,
+                                  KEY_VALUE VARCHAR(20),
+                                  KEY_TEXT VARCHAR(20),
+                                  CUR_STATUS VARCHAR(20),
+                                  LASTUPD_USER VARCHAR(20),
+                                  LASTUPD_STAMP TIMESTAMP default current_timestamp,
+							Creator_User INT NOT NULL,
+                             Seq_Num INT,
+                             PRIMARY KEY (Id),
+                             FOREIGN KEY (Creator_User) REFERENCES User_Details(Id));
+
+mysql> DESC APP_PARAMETERS;
++---------------+-------------+------+-----+-------------------+-------------------+
+| Field         | Type        | Null | Key | Default           | Extra             |
++---------------+-------------+------+-----+-------------------+-------------------+
+| ID            | int         | NO   | PRI | NULL              |                   |
+| KEY_VALUE     | varchar(20) | YES  |     | NULL              |                   |
+| KEY_TEXT      | varchar(20) | YES  |     | NULL              |                   |
+| CUR_STATUS    | varchar(20) | YES  |     | NULL              |                   |
+| LASTUPD_USER  | varchar(20) | YES  |     | NULL              |                   |
+| LASTUPD_STAMP | timestamp   | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| Creator_User  | int         | NO   | MUL | NULL              |                   |
+| Seq_Num       | int         | YES  |     | NULL              |                   |
++---------------+-------------+------+-----+-------------------+-------------------+
+8 rows in set (0.00 sec)
+-------------------------------------------------------------------------------------------
+                                        MENTOR , LAB
+-------------------------------------------------------------------------------------------
+mysql> CREATE TABLE Lab (Id INT NOT NULL,
+    ->                            Name VARCHAR(100),
+    ->                   Location VARCHAR(20),
+    ->                   Address VARCHAR(100),
+    ->                   Status VARCHAR(20),
+    ->                   Creator_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->                            Creator_User INT NOT NULL,
+    ->                            PRIMARY KEY (Id),
+    ->                   FOREIGN KEY (Creator_User) REFERENCES User_Details(Id));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> CREATE TABLE Mentor (Id INT NOT NULL,
+    ->                                   Name VARCHAR(50),
+    ->                      Mentor_Type VARCHAR(20),
+    ->                      Lab_Id INT NOT NULL,
+    ->                      Status VARCHAR(20),
+    ->                      Creator_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->                                   Creator_User INT NOT NULL,
+    ->                                   PRIMARY KEY (Id),
+    ->                      FOREIGN KEY (Creator_User) REFERENCES User_Details(Id),
+    ->                      FOREIGN KEY (Lab_Id) REFERENCES Lab(Id));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> desc mentor;
++---------------+-------------+------+-----+-------------------+-------------------+
+| Field         | Type        | Null | Key | Default           | Extra             |
++---------------+-------------+------+-----+-------------------+-------------------+
+| Id            | int         | NO   | PRI | NULL              |                   |
+| Name          | varchar(50) | YES  |     | NULL              |                   |
+| Mentor_Type   | varchar(20) | YES  |     | NULL              |                   |
+| Lab_Id        | int         | NO   | MUL | NULL              |                   |
+| Status        | varchar(20) | YES  |     | NULL              |                   |
+| Creator_Stamp | timestamp   | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| Creator_User  | int         | NO   | MUL | NULL              |                   |
++---------------+-------------+------+-----+-------------------+-------------------+
+7 rows in set (0.00 sec)
+---------------------------------------------------------------------------------------------------
+                                     MENTOR IDEATION MAP
+---------------------------------------------------------------------------------------------------
+mysql> CREATE TABLE Mentor_Ideation_Map (Id INT NOT NULL,
+    ->                                                            Parent_Mentor_Id INT,
+    ->                                   Mentor_Id INT,
+    ->                                   Status VARCHAR(20),
+    ->                                   Creator_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->                                                            Creator_User INT NOT NULL,
+    ->                                   PRIMARY KEY (Id),
+    ->                                   FOREIGN KEY (Creator_User) REFERENCES User_Details(Id),
+    ->                                   FOREIGN KEY (Parent_Mentor_Id) REFERENCES Mentor(Id),
+    ->                                   FOREIGN KEY (Mentor_Id) REFERENCES Mentor(Id));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc mentor_ideation_map
+    -> ;
++------------------+-------------+------+-----+-------------------+-------------------+
+| Field            | Type        | Null | Key | Default           | Extra             |
++------------------+-------------+------+-----+-------------------+-------------------+
+| Id               | int         | NO   | PRI | NULL              |                   |
+| Parent_Mentor_Id | int         | YES  | MUL | NULL              |                   |
+| Mentor_Id        | int         | YES  | MUL | NULL              |                   |
+| Status           | varchar(20) | YES  |     | NULL              |                   |
+| Creator_Stamp    | timestamp   | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| Creator_User     | int         | NO   | MUL | NULL              |                   |
++------------------+-------------+------+-----+-------------------+-------------------+
+6 rows in set (0.00 sec)
+-------------------------------------------------------------------------------------------------
+                                        MENTOR TECH STACK
+-------------------------------------------------------------------------------------------------
+mysql> CREATE TABLE Mentor_Tech_Stack (Id INT NOT NULL,
+    ->                                                          Mentor_Id INT NOT NULL,
+    ->                                 Tech_Stack_Id INT NOT NULL,
+    ->                                 Status VARCHAR(20),
+    ->                                 Creator_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->                                                          Creator_User INT NOT NULL,
+    ->                                 PRIMARY KEY (Id),
+    ->                                 FOREIGN KEY (Creator_User) REFERENCES User_Details(Id),
+    ->                                 FOREIGN KEY (Mentor_Id) REFERENCES Mentor(Id),
+    ->                                 FOREIGN KEY (Tech_Stack_Id) REFERENCES Tech_Stack(Id));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> desc mentor_tech_stack;
++---------------+-------------+------+-----+-------------------+-------------------+
+| Field         | Type        | Null | Key | Default           | Extra             |
++---------------+-------------+------+-----+-------------------+-------------------+
+| Id            | int         | NO   | PRI | NULL              |                   |
+| Mentor_Id     | int         | NO   | MUL | NULL              |                   |
+| Tech_Stack_Id | int         | NO   | MUL | NULL              |                   |
+| Status        | varchar(20) | YES  |     | NULL              |                   |
+| Creator_Stamp | timestamp   | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| Creator_User  | int         | NO   | MUL | NULL              |                   |
++---------------+-------------+------+-----+-------------------+-------------------+
+6 rows in set (0.00 sec)
+----------------------------------------------------------------------------------------------
+                                       LAB_THRESHOLD
+----------------------------------------------------------------------------------------------
+mysql> CREATE TABLE Lab_Threshold (Id INT NOT NULL,
+    ->                                                  Lab_Id INT NOT NULL,
+    ->                             Lab_Capacity INT,
+    ->                                                  Lead_Threshold INT,
+    ->                             Ideation_Engg_Threshold INT,
+    ->                             Buddy_Engg_Threshold INT,
+    ->                             Status VARCHAR(20),
+    ->                             Creator_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->                                      Creator_User INT NOT NULL,
+    ->                                                  PRIMARY KEY (Id),
+    ->                             FOREIGN KEY (Creator_User) REFERENCES User_Details(Id),
+    ->                             FOREIGN KEY (Lab_Id) REFERENCES Lab(Id));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> DESC LAB_THRESHOLD;
++-------------------------+-------------+------+-----+-------------------+-------------------+
+| Field                   | Type        | Null | Key | Default           | Extra             |
++-------------------------+-------------+------+-----+-------------------+-------------------+
+| Id                      | int         | NO   | PRI | NULL              |                   |
+| Lab_Id                  | int         | NO   | MUL | NULL              |                   |
+| Lab_Capacity            | int         | YES  |     | NULL              |                   |
+| Lead_Threshold          | int         | YES  |     | NULL              |                   |
+| Ideation_Engg_Threshold | int         | YES  |     | NULL              |                   |
+| Buddy_Engg_Threshold    | int         | YES  |     | NULL              |                   |
+| Status                  | varchar(20) | YES  |     | NULL              |                   |
+| Creator_Stamp           | timestamp   | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| Creator_User            | int         | NO   | MUL | NULL              |                   |
++-------------------------+-------------+------+-----+-------------------+-------------------+
+9 rows in set (0.00 sec)
+--------------------------------------------------------------------------------------------------
+                                     COMPANY_REQUIREMENTS
+--------------------------------------------------------------------------------------------------
+mysql> CREATE TABLE Company_Requirement (Id INT NOT NULL,
+    ->                                                            Company_Id INT NOT NULL,
+    ->                                   Requested_Month DATE,
+    ->                                   City VARCHAR(20),
+    ->                                   Is_Doc_Verification BOOLEAN,
+    ->                                   Requirement_Doc_Path VARCHAR(50),
+    ->                                   No_Of_Engg INT,
+    ->                                   Tech_Stack_Id INT,
+    ->                                   Tech_Type_Id INT,
+    ->                                   Maker_Program_Id INT,
+    ->                                   Lead_Id INT,
+    ->                                   Ideation_Engg_Id INT,
+    ->                                   Buddy_Engg_Id INT,
+    ->                                   Special_Remark VARCHAR(20),
+    ->                                   Status VARCHAR(20),
+    ->                                   Creator_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->                                                            Creator_User INT NOT NULL,
+    ->                                                            PRIMARY KEY (Id),
+    ->                                   FOREIGN KEY (Creator_User) REFERENCES User_Details(Id),
+    ->                                   FOREIGN KEY (Company_Id) REFERENCES Company(Id),
+    ->                                   FOREIGN KEY (Tech_Stack_Id) REFERENCES Tech_Stack(Id),
+    ->                                   FOREIGN KEY (Tech_Type_Id) REFERENCES Tech_Type(Id),
+    ->                                   FOREIGN KEY (Maker_Program_Id) REFERENCES Maker_Program(Id),
+    ->                                   FOREIGN KEY (Lead_Id) REFERENCES Mentor(Id),
+    ->                                   FOREIGN KEY (Ideation_Engg_Id) REFERENCES Mentor_Ideation_Map(Id),
+    ->                                   FOREIGN KEY (Buddy_Engg_Id) REFERENCES Mentor(Id));
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> DESC COMPANY_REQUIREMENT;
++----------------------+-------------+------+-----+-------------------+-------------------+
+| Field                | Type        | Null | Key | Default           | Extra             |
++----------------------+-------------+------+-----+-------------------+-------------------+
+| Id                   | int         | NO   | PRI | NULL              |                   |
+| Company_Id           | int         | NO   | MUL | NULL              |                   |
+| Requested_Month      | date        | YES  |     | NULL              |                   |
+| City                 | varchar(20) | YES  |     | NULL              |                   |
+| Is_Doc_Verification  | tinyint(1)  | YES  |     | NULL              |                   |
+| Requirement_Doc_Path | varchar(50) | YES  |     | NULL              |                   |
+| No_Of_Engg           | int         | YES  |     | NULL              |                   |
+| Tech_Stack_Id        | int         | YES  | MUL | NULL              |                   |
+| Tech_Type_Id         | int         | YES  | MUL | NULL              |                   |
+| Maker_Program_Id     | int         | YES  | MUL | NULL              |                   |
+| Lead_Id              | int         | YES  | MUL | NULL              |                   |
+| Ideation_Engg_Id     | int         | YES  | MUL | NULL              |                   |
+| Buddy_Engg_Id        | int         | YES  | MUL | NULL              |                   |
+| Special_Remark       | varchar(20) | YES  |     | NULL              |                   |
+| Status               | varchar(20) | YES  |     | NULL              |                   |
+| Creator_Stamp        | timestamp   | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| Creator_User         | int         | NO   | MUL | NULL              |                   |
++----------------------+-------------+------+-----+-------------------+-------------------+
+17 rows in set (0.00 sec)
+----------------------------------------------------------------------------------------------------------
+                                           CANDIDATE_STACK_ASSIGNMENT
+----------------------------------------------------------------------------------------------------------
+mysql> CREATE TABLE Candidate_Stack_Assignment (Id INT NOT NULL,
+    ->                                                                           Requirement_Id INT,
+    ->                                          Candidate_Id INT,
+    ->                                          Assign_Date DATE,
+    ->                                          Complete_Date DATE,
+    ->                                          Status VARCHAR(20),
+    ->                                          Creator_Stamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->                                                                           Creator_User INT NOT NULL,
+    ->                                                                           PRIMARY KEY (Id),
+    ->                                          FOREIGN KEY (Creator_User) REFERENCES User_Details(Id),
+    ->                                          FOREIGN KEY (Requirement_Id) REFERENCES Company_Requirement(Id),
+    ->                                          FOREIGN KEY (Candidate_Id) REFERENCES Fellowship_Candidate(Id));
+Query OK, 0 rows affected (0.07 sec)
+mysql>  DESC CANDIDATE_STACK_ASSIGNMENT;
++----------------+-------------+------+-----+-------------------+-------------------+
+| Field          | Type        | Null | Key | Default           | Extra             |
++----------------+-------------+------+-----+-------------------+-------------------+
+| Id             | int         | NO   | PRI | NULL              |                   |
+| Requirement_Id | int         | YES  | MUL | NULL              |                   |
+| Candidate_Id   | int         | YES  | MUL | NULL              |                   |
+| Assign_Date    | date        | YES  |     | NULL              |                   |
+| Complete_Date  | date        | YES  |     | NULL              |                   |
+| Status         | varchar(20) | YES  |     | NULL              |                   |
+| Creator_Stamp  | timestamp   | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| Creator_User   | int         | NO   | MUL | NULL              |                   |
++----------------+-------------+------+-----+-------------------+-------------------+
+8 rows in set (0.00 sec)
